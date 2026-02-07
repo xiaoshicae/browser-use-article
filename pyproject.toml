@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bu-task"
+dynamic = ["version"]
+description = "基于 browser-use 的浏览器自动化任务框架，通过 Markdown 定义任务，LLM Agent 自动执行"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{ name = "zs" }]
+keywords = [
+    "browser-use",
+    "browser-automation",
+    "ai-agent",
+    "llm",
+    "markdown-task",
+    "web-automation",
+    "chrome",
+    "cdp",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+]
+dependencies = [
+    "browser-use>=0.11.0,<1.0",
+    "openai>=1.0",
+    "pydantic-settings>=2.0",
+]
+
+[project.scripts]
+bu = "bu_task.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ptonlix/bu-task"
+Repository = "https://github.com/ptonlix/bu-task"
+
+[tool.hatch.version]
+path = "bu_task/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["bu_task"]
