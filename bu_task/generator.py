@@ -19,6 +19,7 @@ GENERATE_PROMPT = """\
 ---
 description: 在豆瓣搜索评分最高的科幻电影
 url: https://www.douban.com
+model: qwen-vl-max-latest
 ---
 
 # 在豆瓣搜索评分最高的科幻电影
@@ -33,10 +34,12 @@ url: https://www.douban.com
 
 如果任务涉及小红书发布，必须遵循以下模板：
 - frontmatter 中设置 model: qwen-vl-max-latest（小红书页面复杂，需要强视觉模型）
-- url 设为 https://www.xiaohongshu.com
-- 步骤 1：访问 https://creator.xiaohongshu.com/publish/publish ，等待 3 秒让页面完全加载
+- url 设为 `https://www.xiaohongshu.com`
+- 步骤 1：访问 `https://creator.xiaohongshu.com/publish/publish`，等待 3 秒让页面完全加载
 - 步骤 2：如果需要登录，等待用户手动登录后继续
 - 步骤 3：选择发布类型。"写长文"是页面顶部的 tab 标签，点击后会出现"新的创作"按钮，必须再点击"新的创作"才能进入编辑器
+- 步骤 4：智能标题填入 #${title} (${title}是文章相关的话题，比如#人工智能 #AI 等，填入2-3个相关的话题就行) 
+- 步骤 5：完成后点击页面下方的 "发布" 红色按钮，页面跳转说明发布成功
 - 内容填写：先填标题，再填正文，用代码块包裹具体文案内容
 - 添加话题标签：每个话题标签不超过20个字，逐个输入并从下拉建议中选择
 - 注意事项必须包含：遇到登录页面暂停等待用户操作；页面布局与预期不同时灵活适应；不要自动点击发布按钮
