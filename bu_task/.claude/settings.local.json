@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/bu run:*)",
+      "Bash(pkill:*)"
+    ]
+  }
+}
